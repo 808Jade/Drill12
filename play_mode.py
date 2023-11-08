@@ -45,12 +45,15 @@ def init():
 
     for ball in balls:  # 모든 ball에 대해서..
         game_world.add_collision_pair('boy:ball', None, ball) # a 그룹엔 이미 boy가 들어가 있다.
+        game_world.add_collision_pair('zombie:ball', None, ball) #소년은 과 볼 충돌을 비교해야돼 a: boy 넣어주고 b: 아직몰라
 
     zombies = [Zombie() for _ in range(5)]
     game_world.add_objects(zombies, 1)
 
     for zombie in zombies:
         game_world.add_collision_pair('boy:zombie', None, zombie)
+        game_world.add_collision_pair('zombie:ball', zombie, None) #소년은 과 볼 충돌을 비교해야돼 a: boy 넣어주고 b: 아직몰라
+
 
 
 def finish():
